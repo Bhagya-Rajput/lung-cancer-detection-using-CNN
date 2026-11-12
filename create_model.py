@@ -1,15 +1,16 @@
-import tensorflow as tf
-from tensorflow import keras
-from keras import layers
+"""Do not use this file to create a random, untrained model.
 
-model = keras.Sequential([
-    layers.Input(shape=(128, 128, 3)),
-    layers.Conv2D(8, (3, 3), activation='relu'),
-    layers.MaxPooling2D(2, 2),
-    layers.Flatten(),
-    layers.Dense(3, activation='softmax')
-])
+The previous version generated a dummy model and saved it at the same path
+used by the Streamlit app. That could make every prediction meaningless.
 
-model.compile(optimizer='adam', loss='categorical_crossentropy')
-model.save('models/lung_cancer_model.h5')
-print('Saved dummy model to models/lung_cancer_model.h5')
+Train the real classifier from the IQ-OTHNCCD dataset with:
+    python main.py
+Then start the app with:
+    streamlit run app.py
+"""
+from pathlib import Path
+
+model_path = Path(__file__).resolve().parent / "models" / "lung_cancer_model.keras"
+print("This script no longer creates a dummy model.")
+print("Expected trained model:", model_path)
+print("Run 'python main.py' to train and save the real model.")
