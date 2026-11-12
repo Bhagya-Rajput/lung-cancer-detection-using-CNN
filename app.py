@@ -9,7 +9,7 @@ from PIL import Image, ImageOps
 ROOT = Path(__file__).resolve().parent
 MODEL_PATH = ROOT / "models" / "lung_cancer_model.keras"
 CLASS_NAMES_PATH = ROOT / "models" / "class_names.json"
-IMG_SIZE = 128
+IMG_SIZE = 160
 
 st.set_page_config(page_title="Lung CT Image Classifier", page_icon="🫁")
 st.title("Lung CT Image Classifier")
@@ -94,3 +94,4 @@ if uploaded_file is not None:
 
     except Exception as error:
         st.error(f"Could not process this file as an image: {error}")
+#TO RUN THE APP: c:\Python313\python.exe -m streamlit run app.py
